@@ -35,7 +35,7 @@
               >
                 <img
                   v-if="link.icon"
-                  :src="`/src/assets/icons/${link.icon.toLowerCase()}.svg`"
+              :src="getIcon(link.icon.toLowerCase())"
                   :alt="link.name"
                   width="20"
                 />

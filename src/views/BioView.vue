@@ -27,7 +27,7 @@
         <li v-if="products.length > 0">
           <a :href="urlProducts" target="_blank" rel="noopener noreferrer">
             <img
-              :src="`/src/assets/icons/products.svg`"
+              :src="getIcon('products')"
               alt="produtos"
               width="20"
             />
@@ -53,6 +53,7 @@ import instagramIcon from '../assets/icons/instagram.svg';
 import twitterIcon from '../assets/icons/twitter.svg';
 import shopeeIcon from '../assets/icons/shopee.svg';
 import whatsappIcon from '../assets/icons/whatsapp.svg';
+import productsIcon from '../assets/icons/products.svg';
 
 //:src="`/src/assets/icons/${social.icon.toLowerCase()}.svg`"
 export default {
@@ -75,6 +76,7 @@ export default {
       twitter: twitterIcon,
       shopee: shopeeIcon,
       whatsapp: whatsappIcon,
+      products: productsIcon,
     };
 
     const getIcon = (iconName) => icons[iconName] || '';
