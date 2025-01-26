@@ -54,11 +54,30 @@ import { ref } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
 
+import tiktokIcon from '../assets/icons/tiktok.svg';
+import amazonIcon from '../assets/icons/amazon.svg';
+import instagramIcon from '../assets/icons/instagram.svg';
+import twitterIcon from '../assets/icons/twitter.svg';
+import shopeeIcon from '../assets/icons/shopee.svg';
+import whatsappIcon from '../assets/icons/whatsapp.svg';
+
+
 export default {
   name: "ProductsView",
   setup() {
     const route = useRoute();
     const products = ref([]);
+
+    const icons = {
+      tiktok: tiktokIcon,
+      amazon: amazonIcon,
+      instagram: instagramIcon,
+      twitter: twitterIcon,
+      shopee: shopeeIcon,
+      whatsapp: whatsappIcon,
+    };
+
+    const getIcon = (iconName) => icons[iconName] || '';
 
     // Fetch products data
     const fetchProducts = async () => {
@@ -78,6 +97,7 @@ export default {
 
     return {
       products,
+      getIcon
     };
   },
 };

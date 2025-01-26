@@ -16,7 +16,7 @@
           <a :href="social.url" target="_blank" rel="noopener noreferrer">
             <img
               v-if="social.icon"
-              :src="`/src/assets/icons/${social.icon.toLowerCase()}.svg`"
+              :src="getIcon(social.icon.toLowerCase())"
               :alt="social.name"
               width="20"
             />
@@ -47,6 +47,14 @@ import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 import axios from 'axios';
 
+import tiktokIcon from '../assets/icons/tiktok.svg';
+import amazonIcon from '../assets/icons/amazon.svg';
+import instagramIcon from '../assets/icons/instagram.svg';
+import twitterIcon from '../assets/icons/twitter.svg';
+import shopeeIcon from '../assets/icons/shopee.svg';
+import whatsappIcon from '../assets/icons/whatsapp.svg';
+
+//:src="`/src/assets/icons/${social.icon.toLowerCase()}.svg`"
 export default {
   name: 'BioView',
   setup() {
@@ -59,6 +67,17 @@ export default {
 
     //alterar o titulo da página
     document.title = `Bio de ${username}`;
+
+    const icons = {
+      tiktok: tiktokIcon,
+      amazon: amazonIcon,
+      instagram: instagramIcon,
+      twitter: twitterIcon,
+      shopee: shopeeIcon,
+      whatsapp: whatsappIcon,
+    };
+
+    const getIcon = (iconName) => icons[iconName] || '';
 
     // Função para buscar os dados do perfil
     const fetchBio = async () => {
@@ -84,7 +103,8 @@ export default {
       profile,
       socials,
       products,
-      urlProducts
+      urlProducts,
+      getIcon
     };
   },
 };
