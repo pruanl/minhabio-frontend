@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useAuthStore } from './stores/auth'
 import router from './router'
 
-axios.defaults.baseURL = 'http://159.89.224.148'
+axios.defaults.baseURL = 'https://appbio.pedroruan.com'
 
 axios.interceptors.request.use(config => {
     const authStore = useAuthStore()
