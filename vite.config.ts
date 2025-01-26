@@ -20,5 +20,9 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  esbuild: {
+    loader: 'ts',
+    logOverride: { 'ts': 'silent' }, // Ignora logs relacionados ao TypeScript
+  },
 })
